@@ -3,9 +3,9 @@
 $readmes = [
     "dj-table" => [
         "url" => "https://raw.githubusercontent.com/Fauli/dj-table/refs/heads/main/README.md",
-        "date" => "2024-02-01",
+        "date" => "2024-05-15",
         "title" => "DJ Table",
-        "description" => "A project for creating a digital DJ table."
+        "description" => "A project for creating a wooden DJ table."
     ],
     "led-lattice" => [
         "url" => "https://raw.githubusercontent.com/Fauli/led-lattice/refs/heads/main/README.md",
@@ -15,45 +15,45 @@ $readmes = [
     ],
     "self-hosting" => [
         "url" => "https://raw.githubusercontent.com/Fauli/self-hosting/refs/heads/main/README.md",
-        "date" => "2024-02-10",
+        "date" => "2024-07-16",
         "title" => "Self Hosting",
         "description" => "A guide and setup for self-hosting various services."
     ],
     "embroidery" => [
         "url" => "https://raw.githubusercontent.com/Fauli/embroidery/refs/heads/main/README.md",
-        "date" => "2024-02-08",
+        "date" => "2025-01-07",
         "title" => "Embroidery",
         "description" => "Projects and techniques for machine embroidery."
     ],
     "otteri-synth" => [
         "url" => "https://raw.githubusercontent.com/Fauli/otteri-synth/refs/heads/main/README.md",
-        "date" => "2024-02-06",
+        "date" => "2025-01-19",
         "title" => "Otteri Synth",
         "description" => "A synthesizer project inspired by otters."
     ],
     "nalewkas" => [
         "url" => "https://raw.githubusercontent.com/Fauli/nalewkas/refs/heads/main/README.md",
-        "date" => "2024-02-05",
+        "date" => "2024-05-15",
         "title" => "Nalewkas",
         "description" => "A collection of homemade liqueur recipes."
     ],
     "sloth-operator" => [
         "url" => "https://raw.githubusercontent.com/Fauli/sloth-operator/refs/heads/main/README.md",
-        "date" => "2024-02-04",
+        "date" => "2024-02-14",
         "title" => "Sloth Operator",
         "description" => "A Kubernetes operator with a relaxed approach."
     ],
     "schnuppern-plattform-entwickler" => [
         "url" => "https://raw.githubusercontent.com/Fauli/schnuppern-plattform-entwickler/refs/heads/main/README.md",
-        "date" => "2024-02-03",
+        "date" => "2024-04-09",
         "title" => "Schnuppern Plattform Entwickler",
         "description" => "A platform for aspiring developers to explore coding."
     ],
     "giffer" => [
         "url" => "https://raw.githubusercontent.com/Fauli/giffer/refs/heads/main/README.md",
-        "date" => "2024-02-02",
+        "date" => "2024-01-19",
         "title" => "Giffer",
-        "description" => "A simple tool for creating GIFs from videos."
+        "description" => "A simple tool for creating GIFs from images."
     ]
 ];
 
@@ -114,8 +114,9 @@ $page = $_GET['page'] ?? 'home';
         img { max-width: 100%; height: auto; display: block; margin: auto; }
         .container { background-color: #181825; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px #45475a; }
         h1, h2 { color: #f5e0dc; }
-        ul { list-style-type: none; padding: 0; }
-        li { padding: 10px; border-bottom: 1px solid #45475a; }
+        ul { list-style-type: none; padding: 0; padding-top: 4px; }
+        li { padding: 4px; padding-left: 10px; }
+		.project-list-item {padding-left: 0px !important; padding-bottom: 30px; margin-bottom: 10px; border-bottom: 1px solid #45475a; }
         li:last-child { border-bottom: none; }
         .project-title { font-weight: bold; font-size: 1.2em; }
     </style>
@@ -126,10 +127,13 @@ $page = $_GET['page'] ?? 'home';
         
         <?php if ($page === 'home'): ?>
             <p>Welcome to my personal portfolio! Here you'll find various projects I've worked on.</p>
+		    <p>This site is automatically generated based on a selection from my <a href="https://github.com/Fauli" >GitHub Repositories</a></p>
+		    <p>The list is by no means complete, nor necessary kept up to date :)</p>
+		    <br />
             <h2>Projects</h2>
             <ul>
                 <?php foreach ($readmes as $name => $data): ?>
-                    <li>
+                    <li class="project-list-item">
                         <span class="project-title"> <?= htmlspecialchars($data['title']) ?> </span> (<?= htmlspecialchars($data['date']) ?>)<br>
                         <p><?= htmlspecialchars($data['description']) ?></p>
                         <a href="?page=<?= urlencode($name) ?>">[View Project]</a>
